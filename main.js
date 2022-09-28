@@ -1,10 +1,12 @@
 const listaDeTeclas = document.querySelectorAll('.tecla');
-const listaDeSons = document.querySelectorAll('audio');
 
-for(i = 0; i < listaDeTeclas.length; i++){
-    let index = i;
-    listaDeTeclas[index].onclick = function() {
-        listaDeSons[index].load();
-        listaDeSons[index].play();
+for(let index = 0; index < listaDeTeclas.length; index++){
+    let tecla = listaDeTeclas[index];
+    let instrumento = tecla.classList[1];
+    let som = document.querySelector(`#som_${instrumento}`);
+    tecla.onclick = function() {
+        som.load();
+        som.play();
     }
+
 }
